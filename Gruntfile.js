@@ -8,33 +8,54 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'www/css/styles.min.css': ['www/css/reset.css','www/css/header.css', 'www/css/main.css']
+          'www/css/styles.min.css': ['www/css/reset.css','www/css/grid.css', 'www/css/styles.css']
         }
       }
     },
+    uglify:{
+      options:{
+        banner:'/*Created by Nuno Machado*/\n'
+      },
+      build:{
+        files:{
+          'www/src/main.min.js':'www/src/Main.js'
+        }
+      }
+    },
+    //tile images
     responsive_images: {
       dev: {
         options: {
           engine: 'im',
           sizes: [
-              {
-                name:'_small_1x',
-                width: 480,
+            {
+                name:'small',
+                width: 236,
                 quality:30
             },
             {
-              name:'_small_2x',
-              width: 960,
+              name:'small_2x',
+              width: 472,
               quality:30
             },
             {
-              name:'_medium_1x',
-              width: 765,
+              name:'medium',
+              width: 322,
               quality:30
             },
             {
-              name:'_medium_2x',
-              width: 1530,
+              name:'medium_2x',
+              width: 644,
+              quality:30
+            },
+            {
+              name:'big',
+              width: 380,
+              quality:30
+            },
+            {
+              name:'big_2x',
+              width: 760,
               quality:30
             }
           ]
@@ -42,40 +63,62 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'assets/images_original/',
-          dest: 'assets/images/'
+          cwd: 'image_src/tiles/',
+          dest: 'www/assets/'
         }]
       }
-    },
-    pagespeed: {
-      options: {
-        nokey: true,
-        url: "http://experimentaciencia.casadasciencias.org"
-      },
-      prod: {
-        options: {
-          url: "http://experimentaciencia.casadasciencias.org",
-          locale: "en_GB",
-          strategy: "desktop",
-          threshold: 80
-        }
-      },
-      paths: {
-        options: {
-          paths: ["/"],
-          locale: "en_GB",
-          strategy: "mobile",
-          threshold: 60
-        }
-      }
     }
-
-
+    //main image
+    /*responsive_images: {
+      dev: {
+        options: {
+          engine: 'im',
+          sizes: [
+            {
+              name:'small',
+              width: 748,
+              quality:30
+            },
+            {
+              name:'small_2x',
+              width: 1496,
+              quality:30
+            },
+            {
+              name:'medium',
+              width: 1004,
+              quality:30
+            },
+            {
+              name:'medium_2x',
+              width: 2008,
+              quality:30
+            },
+            {
+              name:'big',
+              width: 1180,
+              quality:30
+            },
+            {
+              name:'big_2x',
+              width: 2360,
+              quality:30
+            }
+          ]
+        },
+        files: [{
+          expand: true,
+          src: ['*.{gif,jpg,png}'],
+          cwd: 'image_src/main/',
+          dest: 'www/assets/'
+        }]
+      }
+    }*/
   });
 
+  //build tasks
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-responsive-images');
-  //grunt.loadNpmTasks('grunt-pagespeed');
-  grunt.registerTask('default', ['cssmin','responsive_images'/*,'pagespeed'*/]);
-
+  grunt.registerTask('default', ['cssmin','uglify','responsive_images']);
 };
