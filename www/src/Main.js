@@ -41,10 +41,12 @@ nmm.Main=(function(){
 
     Main.prototype._addListeners=function(){
         var i,length=this._workLinks.length;
-        for(i=0;i<length;i++){
-            //add mouse over listener only to mouse interactions
+        if('ontouchstart' in document.documentElement){
+            //do nothing
             //exclude touch screens
-            if('ontouchstart' in document.documentElement){
+        }else{
+            //add mouse over listener only to mouse interactions
+            for(i=0;i<length;i++){
                 this._workLinks[i].addEventListener('mouseover',this._overHandler.bind(this),false);
             }
         }

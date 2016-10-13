@@ -1,9 +1,10 @@
 /*generic style*/
-*{
-    font-family:'Lato', sans-serif;
+* {
+    font-family:"Lato", sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #2d3c49;
     text-transform: uppercase;
     text-align: right;
@@ -107,8 +108,8 @@ header {
     background-color: rgba(255,255,255,0.8);
 }
 
-@media screen and (max-width:767px) {
-    .works-tile:nth-child(even){
+@media screen and (max-width: 767px) {
+    .works-tile:nth-child(even) {
         padding: 0 5px 0 10px;
     }
 
@@ -117,13 +118,13 @@ header {
     }
 }
 
-@media screen and (min-width:400px) {
-    .header-text{
+@media screen and (min-width: 400px) {
+    .header-text {
         margin-top: 1.5%;
     }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
     h1 {
         font-size: 2.8em;
     }
@@ -168,7 +169,7 @@ header {
     }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
     header {
         padding-bottom: 25px;
         margin-bottom: 30px;

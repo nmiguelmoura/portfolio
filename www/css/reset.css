@@ -1,5 +1,23 @@
 @charset "UTF-8";
-html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, form, fieldset, blockquote {
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+li,
+pre,
+code,
+address,
+form,
+fieldset,
+blockquote {
     padding: 0;
     margin: 0;
     font-size: 100%;
@@ -11,12 +29,15 @@ table {
     border-spacing: 0;
 }
 
-td, th, caption {
+td,
+th,
+caption {
     font-weight: normal;
     text-align: left;
 }
 
-img, fieldset {
+img,
+fieldset {
     border: 0;
 }
 
@@ -30,8 +51,9 @@ ul {
     list-style: square;
 }
 
-q:before, q:after {
-    content: '';
+q:before,
+q:after {
+    content: "";
 }
 
 a{
