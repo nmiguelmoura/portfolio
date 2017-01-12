@@ -62,6 +62,7 @@ header {
 
 .works-tile {
     margin-top:15px;
+    margin-bottom: 10px;
 }
 
 .works-tile:last-of-type {
@@ -162,6 +163,7 @@ header {
 
     .works-tile {
         padding: 0 10px 0 10px;
+        margin-bottom: 20px;
     }
 
     .project-url {
@@ -181,6 +183,7 @@ header {
 
     .works-title {
         padding: 0 20px;
+        margin-bottom: 40px;
     }
 
     h4 {
